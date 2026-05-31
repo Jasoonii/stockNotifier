@@ -1,0 +1,25 @@
+name: Daily Stock Notifier
+
+on:
+  schedule:
+    # GitHub uses UTC. 18:30 UTC translates to 1:30 PM Central Time (CDT)
+    - cron: '30 18 * * 1-5'
+  workflow_dispatch: # This adds a button so you can test it manually
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.14.4'
+
+      - name: Install dependencies
+        run: pip install yfinance requests
+
+      - name: Run script
+        run: python main.py
