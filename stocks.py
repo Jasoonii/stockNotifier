@@ -2,5 +2,5 @@
 stockList = ["NVDA", "AMD", "GOOGL", "MSFT", "AMZN"]
 
 #Notify if a stock drops 2% or more
-alertThreshold = -0.015
+alertThreshold = -0.02
 ntfyTopic = "jasooniStockAlerts"
