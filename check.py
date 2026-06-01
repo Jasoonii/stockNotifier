@@ -4,12 +4,12 @@ def getPercentageChange(ticker):
     ticker = yf.Ticker(ticker)
     stockInfo = ticker.fast_info
 
-    openPrice = stockInfo.get("open")
+    previousClose = stockInfo.get("previousClose")
     price = stockInfo.get("lastPrice")
 
-    if not openPrice or not price:
+    if not previousClose or not price:
         return None, None, None
     
-    percentChange = (price - openPrice) / openPrice
+    percentChange = (price - previousClose) / previousClose
 
-    return percentChange, openPrice, price
+    return percentChange, previousClose, price

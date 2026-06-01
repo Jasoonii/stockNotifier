@@ -6,13 +6,13 @@ def run():
     print("Starting script")
 
     for ticker in stockList:
-        percentChange, openPrice, lastPrice = getPercentageChange(ticker)
+        percentChange, previousClose, lastPrice = getPercentageChange(ticker)
 
         if percentChange is None:
             print(f"[WARNING] Could not find information on {ticker}")
             continue
 
-        print(f"{ticker}: {percentChange * 100:.2f}% from open")
+        print(f"{ticker}: {percentChange * 100:.2f}% from previousClose")
 
         if percentChange <= alertThreshold:
             sendAlert(ntfyTopic, ticker, percentChange, lastPrice)
