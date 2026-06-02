@@ -1,7 +1,7 @@
 import requests
 
 def sendAlert(notifyTopic, ticker, percentChange, currentPrice):
-    message = f"{ticker} is down {abs(percentChange) * 100:.1f}% today (${currentPrice:.2f})"
+    message = f"{ticker} is down {abs(percentChange) * 100:.2f}% today (${currentPrice:.2f})"
 
     requests.post(
         f"https://ntfy.sh/{notifyTopic}",
