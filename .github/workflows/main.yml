@@ -2,8 +2,8 @@ name: Daily Stock Notifier
 
 on:
   schedule:
-    # GitHub uses UTC. 18:08 UTC translates to 1:08 PM Central Time (CDT)
-    - cron: '8 18 * * 1-5'
+    # GitHub uses UTC. 15:08 UTC translates to 10:08 AM Central Time (CDT)
+    - cron: '8 15 * * 1-5'
   workflow_dispatch: # This adds a button so you can test it manually
 
 jobs:
