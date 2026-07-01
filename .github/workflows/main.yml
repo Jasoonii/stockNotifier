@@ -22,4 +22,7 @@ jobs:
         run: pip install yfinance requests anthropic beautifulsoup4 python-dotenv
 
       - name: Run script
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python main.py
