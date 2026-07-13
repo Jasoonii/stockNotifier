@@ -22,7 +22,7 @@ def getStockVerdict(ticker, articles):
 
 
     response = client.messages.create(
-        model = "claude-haiku-4-5",
+        model = "claude-sonnet-4-6",
         max_tokens=300,
         system=(
             "You are a stock analyst. You evaluate news articles to decide if a stock drop is a buying opportunity, a sell, or neutral."
@@ -30,6 +30,7 @@ def getStockVerdict(ticker, articles):
             "If earnings just came out any the company beat it heavily, it should be a buy, even if people are questioning spend on something like AI, an innovative technology which is the future"
             "If there is big controversy or scandal like faking earnings numbers, somebody important leaving the company, it could be a sell, or hold"
             "If people are mass selling, figure out why and determine if it's a buy, sell, or hold."
+            "You are evaluating a buy, sell, or hold evaluation for a long term basis 1 year minimum"
         ),
         messages = [
             {
